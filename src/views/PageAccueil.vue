@@ -1,14 +1,4 @@
 <script setup lang="ts">
-
-import PaysService from "@/services/PaysService.ts";
-import {onMounted} from "vue";
-import {Pays} from "@/typings/Pays.ts";
-
-const paysService = new PaysService();
-
-onMounted(async () => {
-  const pays = await paysService.recupererToutLesPays();
-})
 </script>
 
 <template>
