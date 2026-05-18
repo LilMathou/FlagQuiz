@@ -13,7 +13,7 @@
     <div class="mt-5 bg-body-tertiary border rounded">
       <h2 class="display-5 text-center mb-3 mt-3">Comment jouer?</h2>
 
-      <div class="row text-center">
+      <div class="row text-center p-5">
         <div class="col">
           <h5><span class="badge rounded-pill text-bg-primary">1</span> Un drapeau s'affiche</h5>
           <p class="text-muted small">Un drapeau mystère apparaît à l'écran</p>
