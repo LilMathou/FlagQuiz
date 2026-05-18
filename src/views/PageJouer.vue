@@ -3,8 +3,6 @@
 </script>
 
 <template>
-  <h1>Flag Quiz</h1>
-  <p>Amusez-vous a deviner des pays du monde entier !</p>
 
 </template>
 
