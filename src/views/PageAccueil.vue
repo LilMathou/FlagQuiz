@@ -1,5 +1,14 @@
 <script setup lang="ts">
 
+import PaysService from "@/services/PaysService.ts";
+import {onMounted} from "vue";
+import {Pays} from "@/typings/Pays.ts";
+
+const paysService = new PaysService();
+
+onMounted(async () => {
+  const pays = await paysService.recupererToutLesPays();
+})
 </script>
 
 <template>
@@ -20,7 +29,7 @@
         </div>
         <div class="col">
           <h5><span class="badge rounded-pill text-bg-primary">2</span> Trouve le pays</h5>
-          <p class="text-muted small">Choisis parmi les choix de pays</p>
+          <p class="text-muted small">Écrie le nom du pays affiché</p>
         </div>
         <div class="col">
           <h5><span class="badge rounded-pill text-bg-primary">3</span> Accumule des points</h5>
