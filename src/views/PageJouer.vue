@@ -18,9 +18,13 @@ setLocale('fr');
 const paysService = new PaysService();
 const listePays = ref<Pays[]>([]);
 const pays = ref<Pays | undefined>(undefined);
-
 const score = ref<number>(0);
 const entree = ref<string>('');
+
+onMounted(async () => {
+  listePays.value = await paysService.recupererToutLesPays();
+  pays.value = listePays.value[0];
+})
 
 // TODO : FIXER LE FAIT QUE LES DRAPEAUX PEUVENT ÊTRE MIS 2 FOIS
 
@@ -29,11 +33,6 @@ function genererNouveauNombre(): number {
   const max: number = 249;
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
-onMounted(async () => {
-  listePays.value = await paysService.recupererToutLesPays();
-  pays.value = listePays.value[0];
-})
 
 function changerPays() {
   let nombreAleatoire = genererNouveauNombre();
