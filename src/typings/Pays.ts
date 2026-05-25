@@ -1,21 +1,21 @@
 export class Pays {
-  name: {
-    common: string;
-    official: string;
-  };
   flags: {
     png: string;
     svg: string;
     alt: string;
   };
+  translations: {
+    fra: {
+      official: string;
+      common: string;
+    };
+  };
 
-
-  constructor(name: { common: string; official: string }, flags: {
-    png: string;
-    svg: string;
-    alt: string
-  }) {
-    this.name = name;
+  constructor(
+    flags: { png: string; svg: string; alt: string },
+    translations: { fra: { official: string; common: string; } }
+  ) {
     this.flags = flags;
+    this.translations = translations;
   }
 }
