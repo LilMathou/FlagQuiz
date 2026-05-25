@@ -4,13 +4,16 @@
 <template>
   <div class="container">
     <div class="text-center py-5">
-      <h1 class="display-3">Flag Quiz</h1>
-      <p class="lead">Amusez-vous à deviner des pays du monde entier !</p>
-      <RouterLink class="btn btn-primary btn-lg" :to="{ name: 'Jouer' }">Jouer maintenant</RouterLink>
+      <h1 class="display-1 fw-bold">Connais-tu tous les drapeaux ?</h1>
+      <p class="lead">Teste tes connaissances géographiques avec le jeu de devinette de drapeaux le plus complet du web.
+        Chronomètre, niveaux de difficulté, et scores en temps réel.</p>
+      <RouterLink class="btn btn-primary btn-lg" :to="{ name: 'Jouer' }">Jouer maintenant <i
+          class="bi bi-arrow-right"></i></RouterLink>
     </div>
 
-    <div class="mt-5 bg-body-tertiary border rounded">
-      <h2 class="display-5 text-center mb-3 mt-3">Comment jouer?</h2>
+    <div class="mt-5 border rounded">
+      <h6 class="ms-5 mt-5 text-primary text-uppercase fw-semibold">Comment jouer?</h6>
+      <h2 class="display-5 ms-5">En 3 étapes simples</h2>
 
       <div class="row text-center p-5">
         <div class="col">
@@ -30,6 +33,4 @@
   </div>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

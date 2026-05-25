@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import NavBar from "@/components/NavBar.vue";
+import AppFooter from './components/AppFooter.vue';
+import AppHeader from './components/AppHeader.vue';
 </script>
 
 <template>
-  <NavBar></NavBar>
-  <RouterView></RouterView>
+  <AppHeader />
+  <RouterView />
+  <AppFooter />
 </template>
 
 <style scoped lang="scss"></style>

@@ -11,6 +11,8 @@ const pays = ref<Pays | undefined>(undefined);
 const score = ref<number>(0);
 const entree = ref<string>('');
 
+// TODO : FIXER LE FAIT QUE LES DRAPEAUX PEUVENT ÊTRE MIS 2 FOIS
+
 function genererNouveauNombre(): number{
   const min: number = 0;
   const max: number = 249;
