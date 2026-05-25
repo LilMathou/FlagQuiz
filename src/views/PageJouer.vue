@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import PaysService from "@/services/PaysService.ts";
-import {onMounted, ref} from "vue";
-import type {Pays} from "@/typings/Pays.ts";
-import {Field, Form} from "vee-validate";
+import { onMounted, ref } from "vue";
+import type { Pays } from "@/typings/Pays.ts";
+import { Field, Form } from "vee-validate";
 
 const paysService = new PaysService();
 const listePays = ref<Pays[]>([]);
@@ -13,7 +13,7 @@ const entree = ref<string>('');
 
 // TODO : FIXER LE FAIT QUE LES DRAPEAUX PEUVENT ÊTRE MIS 2 FOIS
 
-function genererNouveauNombre(): number{
+function genererNouveauNombre(): number {
   const min: number = 0;
   const max: number = 249;
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -24,20 +24,20 @@ onMounted(async () => {
   pays.value = listePays.value[0];
 })
 
-function changerPays(){
+function changerPays() {
   let nombreAleatoire = genererNouveauNombre();
   pays.value = listePays.value[nombreAleatoire];
   console.log(pays.value?.translations.fra.common);
 }
 
 let valide: boolean;
-function validerEntreePays(){
-  if (pays.value?.translations.fra.common.trim().toLowerCase() == entree.value.trim().toLowerCase()){
+function validerEntreePays() {
+  if (pays.value?.translations.fra.common.trim().toLowerCase() == entree.value.trim().toLowerCase()) {
     valide = true;
     score.value++;
     changerPays();
     entree.value = '';
-  }else{
+  } else {
     valide = false;
   }
 }
@@ -46,18 +46,24 @@ function validerEntreePays(){
 <template>
   <div class="container">
     <div class="py-5">
-      <div class="text-center">
-        <h4>Score : {{score}}</h4>
+      <div>
+        <h4 class="text-center text-uppercase fw-semibold">{{ score }} pts</h4>
         <div v-if="pays">
-          <img :src="pays.flags.svg" :alt="pays.flags.alt" class="img-fluid" width="500px">
+          <div class="text-center m-5 p-5 bg-body-tertiary border rounded">
+            <img :src="pays.flags.svg" :alt="pays.flags.alt" class="img-fluid" width="500px">
+          </div>
+
           <div class="mt-5">
             <Form @submit="validerEntreePays">
               <div class="mb-3">
                 <label for="inputPays" class="form-label">Nom du pays</label>
-                <Field name="inputPays" type="text" class="form-control" id="inputPays" v-model="entree"/>
+                <Field name="inputPays" type="text" class="form-control" id="inputPays" v-model="entree" />
               </div>
-              <button type="submit" class="btn btn-lg btn-success me-3">Valider</button>
-              <button class="btn btn-lg btn-primary" @click="changerPays()">Suivant</button>
+              <!--TODO: Faire un message d'erreur lorsque le pays n'est pas bon-->
+              <div class="text-center">
+                <button type="submit" class="btn btn-lg btn-success me-3">Valider</button>
+                <button class="btn btn-lg btn-primary" @click="changerPays()">Suivant</button>
+              </div>
             </Form>
           </div>
         </div>
@@ -66,6 +72,4 @@ function validerEntreePays(){
   </div>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>
