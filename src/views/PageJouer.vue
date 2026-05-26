@@ -28,7 +28,8 @@ onMounted(async () => {
 
 let compteur = 0;
 let nombres: number[] = [];
-for (let i = 0; i < listePays.value.length; i++) {
+// TODO : enlever le nombre magique
+for (let i = 0; i < 249; i++) {
   nombres[i] = i;
 }
 nombres.sort(() => Math.random() - 0.5);
@@ -43,6 +44,7 @@ function genererNouveauNombre(): number {
     nombreAleatoire = nombres[compteur];
     compteur++;
   }
+  console.log(compteur);
   return nombreAleatoire;
 }
 
