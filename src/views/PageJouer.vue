@@ -28,7 +28,7 @@ onMounted(async () => {
 
 let compteur = 0;
 let nombres: number[] = [];
-for (let i = 0; i < 249; i++) {
+for (let i = 0; i < listePays.value.length; i++) {
   nombres[i] = i;
 }
 nombres.sort(() => Math.random() - 0.5);
