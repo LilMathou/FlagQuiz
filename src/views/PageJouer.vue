@@ -26,12 +26,27 @@ onMounted(async () => {
   pays.value = listePays.value[0];
 })
 
-// TODO : FIXER LE FAIT QUE LES DRAPEAUX PEUVENT ÊTRE MIS 2 FOIS
-
+let compteur = 0;
+let nombres: number[] = [];
+for (let i = 0; i < 250; i++) {
+  nombres[i] = i;
+}
+nombres.sort(() => Math.random() - 0.5);
+console.log(nombres.length);
+compteur = 249;
 function genererNouveauNombre(): number {
-  const min: number = 0;
-  const max: number = 249;
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  let nombreAleatoire: number;
+  if (compteur > nombres.length) {
+    compteur = 0;
+    nombres.sort(() => Math.random() - 0.5);
+    nombreAleatoire = nombres[compteur];
+    compteur++;
+  } else {
+    nombreAleatoire = nombres[compteur];
+    compteur++;
+  }
+  console.log(compteur);
+  return nombreAleatoire;
 }
 
 function changerPays() {
