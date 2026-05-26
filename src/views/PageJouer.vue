@@ -28,15 +28,13 @@ onMounted(async () => {
 
 let compteur = 0;
 let nombres: number[] = [];
-for (let i = 0; i < 250; i++) {
+for (let i = 0; i < 249; i++) {
   nombres[i] = i;
 }
 nombres.sort(() => Math.random() - 0.5);
-console.log(nombres.length);
-compteur = 249;
 function genererNouveauNombre(): number {
   let nombreAleatoire: number;
-  if (compteur > nombres.length) {
+  if (compteur >= nombres.length) {
     compteur = 0;
     nombres.sort(() => Math.random() - 0.5);
     nombreAleatoire = nombres[compteur];
@@ -45,7 +43,6 @@ function genererNouveauNombre(): number {
     nombreAleatoire = nombres[compteur];
     compteur++;
   }
-  console.log(compteur);
   return nombreAleatoire;
 }
 
