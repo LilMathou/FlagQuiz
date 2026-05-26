@@ -44,7 +44,6 @@ function genererNouveauNombre(): number {
     nombreAleatoire = nombres[compteur];
     compteur++;
   }
-  console.log(compteur);
   return nombreAleatoire;
 }
 
