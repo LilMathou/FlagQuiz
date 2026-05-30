@@ -21,18 +21,17 @@ const pays = ref<Pays | undefined>(undefined);
 const score = ref<number>(0);
 const entree = ref<string>('');
 
+let compteur = 1;
+let nombres: number[] = [];
 onMounted(async () => {
   listePays.value = await paysService.recupererToutLesPays();
-  pays.value = listePays.value[0];
+  for (let i = 0; i < listePays.value.length - 1; i++) {
+    nombres[i] = i;
+  }
+  nombres.sort(() => Math.random() - 0.5);
+  pays.value = listePays.value[nombres[0]];
 })
 
-let compteur = 0;
-let nombres: number[] = [];
-// TODO : enlever le nombre magique
-for (let i = 0; i < 249; i++) {
-  nombres[i] = i;
-}
-nombres.sort(() => Math.random() - 0.5);
 function genererNouveauNombre(): number {
   let nombreAleatoire: number;
   if (compteur >= nombres.length) {
