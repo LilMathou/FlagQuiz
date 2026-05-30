@@ -32,6 +32,11 @@ onMounted(async () => {
   pays.value = listePays.value[nombres[0]];
 })
 
+/**
+ * Permet de générer un nouveau nomber aléatoire
+ * 
+ * @returns {number} Le nouveau nombre
+ */
 function genererNouveauNombre(): number {
   let nombreAleatoire: number;
   if (compteur >= nombres.length) {
@@ -46,13 +51,21 @@ function genererNouveauNombre(): number {
   return nombreAleatoire;
 }
 
+/**
+ * Permet de changer de pays
+ */
 function changerPays() {
   let nombreAleatoire = genererNouveauNombre();
   pays.value = listePays.value[nombreAleatoire];
   console.log(pays.value?.translations.fra.common);
 }
 
+
 let valide: boolean;
+
+/**
+ * Permet de valider l'entrée utilisateur d'un pays
+ */
 function validerEntreePays() {
   if (pays.value?.translations.fra.common.trim().toLowerCase() == entree.value.trim().toLowerCase()) {
     valide = true;
