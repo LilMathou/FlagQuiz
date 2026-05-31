@@ -24,6 +24,7 @@ const entree = ref<string>('');
 let compteur = 1;
 let nombres: number[] = [];
 onMounted(async () => {
+  // TODO : faire un mode facile et difficile
   listePays.value = await paysService.recupererToutLesPays();
   for (let i = 0; i < listePays.value.length - 1; i++) {
     nombres[i] = i;
@@ -34,7 +35,7 @@ onMounted(async () => {
 
 /**
  * Permet de générer un nouveau nomber aléatoire
- * 
+ *
  * @returns {number} Le nouveau nombre
  */
 function genererNouveauNombre(): number {
@@ -67,6 +68,7 @@ let valide: boolean;
  * Permet de valider l'entrée utilisateur d'un pays
  */
 function validerEntreePays() {
+  // TODO : Ajouter des sons lorsque la réponse est bonne ou non et modifier la validation
   if (pays.value?.translations.fra.common.trim().toLowerCase() == entree.value.trim().toLowerCase()) {
     valide = true;
     score.value++;
